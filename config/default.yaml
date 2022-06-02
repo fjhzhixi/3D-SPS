@@ -99,7 +99,7 @@ LOSS:
   heading_delta: 1
 
 TRAIN:
-  batch_size: 2
+  batch_size: 32
   num_workers: 0
   epoch: 32
 
