@@ -1,15 +1,14 @@
 GENERAL:
   manual_seed: 3407
   tag: default
-  #tag: debug
   gpu: '0'
   debug: False
   distribute: False
 
 PATH:
-  root_path: '/data1/fjh/CVPR22/vg-sps'
-  scannet_data_folder: 'scannet_data'
-  scanref_data_root: '/data1/fjh/CVPR22/vg-sps/data'
+  root_path: ''
+  scannet_data_folder: ''
+  scanref_data_root: ''
 
 DATA:
   dataset: ScanRefer
@@ -79,8 +78,6 @@ MODEL:
   transformer_mode: serial
 
   # pretrain
-  #use_pretrained: True
-  #pretrain_path: /data1/fjh/CVPR22/models/model.pth
   use_pretrained: False
   pretrain_path: False
   trans_pre_model: False

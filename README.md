@@ -1,7 +1,7 @@
 # 3D-SPS
 Code for our CVPR 2022 Oral paper "3D-SPS: Single-Stage 3D Visual Grounding via Referred Point Progressive Selection".
 
-[[`arXiv`](https://arxiv.org/pdf/2204.06272.pdf)] [[`BibTeX`](##Citation)]
+[[`arXiv`](https://arxiv.org/pdf/2204.06272.pdf)] [[`BibTeX`](#CitingSPS)]
 
 <div align="center">
   <img src="docs/framework.png"/>
@@ -107,7 +107,7 @@ We would like to thank the authors of [ScanRefer](https://github.com/daveredrum/
 ## License
 `3D-SPS` is released under the [MIT license](LICENSE).
 
-## Citation
+## <a name="CitingSPS"></a>Citation
 
 Consider cite 3D-SPS in your publications if it helps your research.
 
