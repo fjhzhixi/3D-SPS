@@ -1,0 +1,125 @@
+GENERAL:
+  manual_seed: 3407
+  tag: default
+  #tag: debug
+  gpu: '0'
+  debug: False
+  distribute: False
+
+PATH:
+  root_path: '/data1/fjh/CVPR22/vg-sps'
+  scannet_data_folder: 'scannet_data'
+  scanref_data_root: '/data1/fjh/CVPR22/vg-sps/data'
+
+DATA:
+  dataset: ScanRefer
+  num_points: 40000
+  num_scenes: -1
+  num_classes: 20
+  use_augment: False
+  max_num_obj: 128
+
+  # input
+  use_height: False
+  use_color: True
+  use_normal: True
+  use_multiview: True
+  fuse_multi_mode: late   # early or late
+
+
+  # label
+  det_class_label: main_with_others    # all, main_with_others, main
+
+MODEL:
+  # general
+  dropout: 0.1
+  use_checkpoint: False
+
+  # point backbone
+  point_feat_dim: 288
+
+  # visual feature
+  vis_feat_dim: 128
+  
+  # sampling
+  sampling: kpsa-lang-filter
+  num_proposal: 512
+  kps_fusion_dim: 256
+  use_ref_score_loss: True
+  use_context_label: False
+  ref_use_obj_mask: True
+  
+  # Head
+  size_cls_agnostic: False
+  use_objectness: True
+
+  # Language Module
+  lang_emb_type: clip
+  max_des_len: 77
+  word_erase: 0.1
+  #embedding_size: 300
+  #gru_hidden_size: 256
+  #gru_num_layer: 1
+  #use_bidir: False # bi-directional GRU
+
+  # Transformer
+  model: 'TransformerFilter'
+  num_decoder_layers: 5
+  object_position_embedding: loc_learned
+  point_position_embedding: xyz_learned
+  lang_position_embedding: none
+  transformer_feat_dim: 384
+  ffn_dim: 2048
+  n_head: 4
+  transformer_dropout: 0.05
+  use_ref_mask: False
+  use_att_score: True
+  ref_filter_steps: [1,2,3,4]
+  ref_mask_scale: 0.5
+  transformer_mode: serial
+
+  # pretrain
+  #use_pretrained: True
+  #pretrain_path: /data1/fjh/CVPR22/models/model.pth
+  use_pretrained: False
+  pretrain_path: False
+  trans_pre_model: False
+
+LOSS:
+  # ----- Refer -----
+  no_detection: False
+  no_reference: False
+  no_lang_cls: False
+  ref_each_stage: True
+  cls_each_stage: True
+  ref_criterion: rank
+  # ----- Detection -----
+  kps_topk: 5
+  kps_loss_weight: 0.8
+  det_loss_weight: 5
+  center_delta: 0.04
+  size_delta: 0.111111111111
+  heading_delta: 1
+
+TRAIN:
+  batch_size: 2
+  num_workers: 0
+  epoch: 32
+
+  lr: 0.001
+  decoder_lr: 0.0001
+  det_decoder_lr: False
+  lr_decay_step: [16, 24, 28]
+  lr_decay_rate: 0.1
+  bn_decay_step: 10
+  bn_decay_rate: 0.1
+  bn_momentum_init: 0.2
+  bn_momentum_min: 0.001
+  wd: 0.0005
+
+  verbose: 20       # iter num to ouput log in shell
+  val_freq: 2       # epoch num to val
+  eval_det: True
+  eval_ref: True
+  iou_ref_th: 0.25
+  iou_ref_topk : 4
