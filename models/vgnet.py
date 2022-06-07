@@ -12,24 +12,6 @@ from models.transformer import *
 from models.mlp import MLP
 
 class VGNet(nn.Module):
-    r"""
-
-    Parameters
-    ----------
-    num_class: int
-        Number of semantics classes to predict over -- size of softmax classifier
-    num_heading_bin: int
-    num_size_cluster: int
-    input_feature_dim: (default: 0)
-        Input dim in the feature descriptor for each point.  If the point cloud is Nx9, this
-        value should be 6 as in an Nx9 point cloud, 3 of the channels are xyz, and 6 are feature descriptors
-    width: (default: 1)
-        PointNet backbone width ratio
-    num_proposal: int (default: 128)
-        Number of proposals/detections generated from the network. Each proposal is a 3D OBB with a semantic class.
-    sampling: (default: kps)
-        Initial object candidate sampling method
-    """
 
     def __init__(self, input_feature_dim, args, data_config):
         super().__init__()
