@@ -13,7 +13,6 @@ from models.mlp import MLP
 
 class VGNet(nn.Module):
     r"""
-    A Group-Free detector for 3D object detection via Transformer.
 
     Parameters
     ----------
