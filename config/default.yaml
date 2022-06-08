@@ -78,8 +78,8 @@ MODEL:
   transformer_mode: serial
 
   # pretrain
-  use_pretrained: False
-  pretrain_path: False
+  use_pretrained: True
+  pretrain_path: ''
   trans_pre_model: False
 
 LOSS:

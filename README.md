@@ -64,7 +64,7 @@ python batch_load_scannet_data.py
 > ```shell
 > python visualize.py --scene_id scene0000_00
 > ```
-<!-- 5. (Optional) Download the preprocessed [multiview features (~36GB)](http://kaldir.vc.in.tum.de/enet_feats.hdf5) and put it under `data/scannet/scannet_data/`. -->
+5. Download the pre-trained PointNet++ backbone ([`Google Drive`](https://drive.google.com/file/d/1oC-3mx104EReRqI4nTwjwkm9TZOy0lQM/view?usp=sharing) or [`Baidu Drive`](https://pan.baidu.com/s/1dlWUi86-fjZH3VQSH_MsSQ?pwd=likl)(`passcode: likl`)])
 5. (Optional) Pre-process the multiview features from ENet. 
 
     a. Download [the ENet pretrained weights (1.4MB)](http://kaldir.vc.in.tum.de/ScanRefer/scannetv2_enet.pth) and put it under `data/`
