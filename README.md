@@ -80,11 +80,11 @@ python batch_load_scannet_data.py
 
     e. Project ENet features from ScanNet frames to point clouds; you need ~36GB to store the generated HDF5 database:
     ```shell
-    python script/project_multiview_features.py --maxpool
+    python scripts/project_multiview_features.py --maxpool
     ```
     > You can check if the projections make sense by projecting the semantic labels from image to the target point cloud by:
     > ```shell
-    > python script/project_multiview_labels.py --scene_id scene0000_00 --maxpool
+    > python scripts/project_multiview_labels.py --scene_id scene0000_00 --maxpool
     > ```
 
 ## Usage
